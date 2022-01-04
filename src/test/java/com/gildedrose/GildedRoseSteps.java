@@ -1,6 +1,7 @@
 package com.gildedrose;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -36,6 +37,11 @@ public class GildedRoseSteps {
 	@Then("its quality is {int}")
 	public void itsQualityIs(Integer int1) {
 	    assertEquals((int) int1, item.quality);
+	}
+
+	@Then("the quality {int} is less than 50")
+	public void compareQuality50(Integer int1) {
+		assertTrue(int1 < 50);
 	}
 
 }
