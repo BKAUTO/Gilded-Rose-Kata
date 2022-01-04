@@ -39,9 +39,9 @@ public class GildedRoseSteps {
 	    assertEquals((int) int1, item.quality);
 	}
 
-	@Then("the quality {int} is less than 50")
-	public void compareQuality50(Integer int1) {
-		assertTrue(int1 < 50);
+	@Then("the quality is no more than 50")
+	public void compareQuality50() {
+	   assertTrue(item.quality < 50);
 	}
 
 }
