@@ -21,9 +21,11 @@ public class GildedRoseSteps {
 		gr = new GildedRose(new Item[] {item});
 	}
 
-	@When("a day has passed")
-	public void aDayHasPassed() {
-	    gr.updateQuality();
+	@When("{int} day has passed")
+	public void DaysHavePassed(int days) {
+		for (int i = 0; i < days; i++) {
+			gr.updateQuality();
+		}
 	}
 	
 	@Then("it has to be sold in {int} days")
