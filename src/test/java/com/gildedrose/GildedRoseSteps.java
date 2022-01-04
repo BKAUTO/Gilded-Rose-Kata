@@ -10,11 +10,12 @@ import io.cucumber.java.en.When;
 public class GildedRoseSteps {
 	GildedRose gr;
 	Item item;
-	int sellInDays;
+	int initSellInDays;
 	
 	@Given("an item named {string} with quality {int} and which has to be sold in {int} days")
 	public void anItemNamedWithQualityAndWhichHasToBeSoldInDays(String name, Integer quality, Integer sellInDays) {
 		guildedRoseWithItem(name,sellInDays,quality);
+		initSellInDays = sellInDays;
 	}
 	
 	private void guildedRoseWithItem(String name, Integer sellIn, Integer quality) {
@@ -47,6 +48,16 @@ public class GildedRoseSteps {
 	@Then("the quality is not negative")
 	public void negativeQuality() {
 		assertTrue(item.quality >= 0);
+	}
+
+	@Then("sulfuras sellin never changes")
+	public void sulfurasDays() {
+		assertEquals(initSellInDays, item.sellIn);
+	}
+
+	@Then("sulfuras quality never changes")
+	public void sulfurasQuality() {
+		assertEquals(80, item.quality);
 	}
 
 }
