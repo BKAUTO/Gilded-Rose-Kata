@@ -41,7 +41,12 @@ public class GildedRoseSteps {
 
 	@Then("the quality is no more than 50")
 	public void compareQuality50() {
-	   assertTrue(item.quality < 50);
+	   assertTrue(item.quality <= 50);
+	}
+
+	@Then("the quality is not negative")
+	public void negativeQuality() {
+		assertTrue(item.quality >= 0);
 	}
 
 }
